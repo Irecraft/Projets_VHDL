@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "stv4_out_R[0]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_R[1]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_R[2]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_R[3]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_G[0]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_G[1]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_G[2]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_G[3]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "stv4_out_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "st_out_synchroLigne",
+					"strict" : false
+				},
+				{
+					"name" : "st_out_synchroTrame",
+					"strict" : false
+				},
+				{
+					"name" : "st_in_clk50MHz",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
