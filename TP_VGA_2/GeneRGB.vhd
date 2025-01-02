@@ -7,6 +7,9 @@ entity GeneRGB is port(
 	-- input
 	signal st_in_posXpixel : in integer;
 	signal st_in_posYpixel : in integer;
+	signal st_in_posXCarre : in integer;
+	signal st_in_posYCarre : in integer;
+	
 	-- outputs
 	signal st_out_RComponent : out std_logic;
 	signal st_out_GComponent : out std_logic;
@@ -27,14 +30,14 @@ begin
 	
 	-- carré vert
 	
-	-- validR <= '1' when (false) else '0';
-	-- validG <= '1' when ((st_in_posXpixel >= X_MILIEU-(VAL_COTE_CARRE/2)) and (st_in_posXpixel < X_MILIEU+(VAL_COTE_CARRE/2)) and (st_in_posYpixel >= Y_MILIEU-(VAL_COTE_CARRE/2)) and (st_in_posYpixel < Y_MILIEU+(VAL_COTE_CARRE/2)) and (validPix = '1')) else '0';
-	-- validB <= '1' when (false) else '0';
+	validR <= '1' when (false) else '0';
+	validG <= '1' when ((st_in_posXpixel >= (XAB+st_in_posXCarre)-(VAL_COTE_CARRE/2)) and (st_in_posXpixel < (XAB+st_in_posXCarre)+(VAL_COTE_CARRE/2)) and (st_in_posYpixel >= (YAB+st_in_posYCarre)-(VAL_COTE_CARRE/2)) and (st_in_posYpixel < (YAB+st_in_posYCarre)+(VAL_COTE_CARRE/2)) and (validPix = '1')) else '0';
+	validB <= '1' when (false) else '0';
 	
 	-- drapeau
-	validR <= '1' when ((st_in_posXpixel >= XAB+333) and (st_in_posXpixel < XAB+999) and (validPix = '1')) else '0';
-	validG <= '1' when ((st_in_posXpixel >= XAB+333) and (st_in_posXpixel < XAB+666) and (validPix = '1')) else '0';
-	validB <= '1' when ((st_in_posXpixel >= XAB) and (st_in_posXpixel < XAB+666) and (validPix = '1')) else '0';
+	-- validR <= '1' when ((st_in_posXpixel >= XAB+333) and (st_in_posXpixel < XAB+999) and (validPix = '1')) else '0';
+	-- validG <= '1' when ((st_in_posXpixel >= XAB+333) and (st_in_posXpixel < XAB+666) and (validPix = '1')) else '0';
+	-- validB <= '1' when ((st_in_posXpixel >= XAB) and (st_in_posXpixel < XAB+666) and (validPix = '1')) else '0';
 
 	st_out_RComponent <= validR;
 	st_out_GComponent <= validG;

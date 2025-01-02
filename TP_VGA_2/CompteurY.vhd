@@ -10,7 +10,7 @@ entity CompteurY is port(
 		-- outputs
 		signal st_out_posYpixel : out integer;
 		signal st_out_syncTrame : out std_logic;
-		signal st_out_syncImgAnimUpdate : out std_logic);	-- retenue de 1 période de clock50MHz pour actualiser l'animation
+		signal st_out_AnimImageSync : out std_logic);
 end CompteurY;
 
 architecture arch_CompteurY of CompteurY is
@@ -20,9 +20,18 @@ begin
 	process(st_in_en, st_in_clk)
 	begin
 		if(st_in_clk'event and (st_in_clk = '1') and (st_in_en = '1')) then
-		
+			
+			st_out_syncTrame <= '1';
+			st_out_AnimImageSync <= '1';
+			
 			-- Compteur Y
 			int_cptY <= int_cptY + 1;
+			
+			if(int_cptY <= YA) then
+				-- Assigne le signal de synchro trame vers l'écran
+				st_out_syncTrame <= '0';
+				st_out_AnimImageSync <= '0';
+			end if;
 			
 			if(int_cptY > YABCD) then
 				int_cptY <= 0;
@@ -32,15 +41,9 @@ begin
 	
 	end process;
 
-	-- Assigne le signal de synchro trame vers l'écran
-	st_out_syncTrame <= '0' when(int_cptY <= YA)
-		else '1';
 	
 	-- Assigne la position de pos pixel en Y
 	st_out_posYpixel <= int_cptY;
-	
-	-- Assigne la sychronisation d'image valide pendant une période d'horloge
-	st_out_syncImgAnimUpdate <= '1' when(int_cptY = YA) else '0';
 	
 	
 end arch_CompteurY;

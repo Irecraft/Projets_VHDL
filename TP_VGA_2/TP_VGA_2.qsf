@@ -43,11 +43,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY DrapeauVGA
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 15.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:45:13 JUNE 17,2016"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.1 Lite Edition"
-set_global_assignment -name VHDL_FILE GeneRGB.vhd
-set_global_assignment -name VHDL_FILE DrapeauVGA.vhd
-set_global_assignment -name VHDL_FILE drapeauPack.vhd
-set_global_assignment -name VHDL_FILE CompteurY.vhd
-set_global_assignment -name VHDL_FILE CompteurX.vhd
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
@@ -449,4 +444,10 @@ set_location_assignment PIN_Y1 -to stv4_out_R[3]
 set_location_assignment PIN_Y2 -to stv4_out_R[2]
 set_location_assignment PIN_V1 -to stv4_out_R[1]
 set_location_assignment PIN_AA1 -to stv4_out_R[0]
+set_global_assignment -name VHDL_FILE CalcPosCarre.vhd
+set_global_assignment -name VHDL_FILE GeneRGB.vhd
+set_global_assignment -name VHDL_FILE DrapeauVGA.vhd
+set_global_assignment -name VHDL_FILE drapeauPack.vhd
+set_global_assignment -name VHDL_FILE CompteurY.vhd
+set_global_assignment -name VHDL_FILE CompteurX.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

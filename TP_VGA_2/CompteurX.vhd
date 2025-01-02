@@ -11,7 +11,7 @@ entity CompteurX is port(
 		signal st_out_syncLigne : out std_logic;
 		signal st_out_finLigne : out std_logic);
 end CompteurX;
-
+	
 architecture arch_CompteurX of CompteurX is
 signal int_cptX : integer range 0 to XABCD;
 

@@ -20,9 +20,12 @@ architecture arch_DrapeauVGA of DrapeauVGA is
 signal st_posXpixel : integer;
 signal st_posYpixel : integer;
 signal st_retenue : STD_LOGIC;
+signal st_poscarreX : integer;
+signal st_poscarreY : integer;
 signal st_R : STD_LOGIC;
 signal st_G : STD_LOGIC;
 signal st_B : STD_LOGIC;
+signal st_vsync : STD_LOGIC;
 
 begin
 	CptX : CompteurX
@@ -38,13 +41,24 @@ begin
 			st_in_clk => st_in_clk50MHz,
 			st_in_en => st_retenue,
 			st_out_syncTrame => st_out_synchroTrame,
+			st_out_AnimImageSync => st_vsync,
 			st_out_posYpixel => st_posYpixel
+		);
+	
+	CalculateurPosCarre : CalcPosCarre
+		port map(
+			st_in_clk => st_in_clk50MHz,
+			st_in_syncImage => st_vsync,
+			int_out_XCarre => st_poscarreX,
+			int_out_YCarre => st_poscarreY
 		);
 	
 	GenerateurRGB : GeneRGB
 		port map(
 			st_in_posXpixel => st_posXpixel,
 			st_in_posYpixel => st_posYpixel,
+			st_in_posXCarre => st_poscarreX,
+			st_in_posYCarre => st_poscarreY,
 			st_out_RComponent => st_R,
 			st_out_GComponent => st_G,
 			st_out_BComponent => st_B

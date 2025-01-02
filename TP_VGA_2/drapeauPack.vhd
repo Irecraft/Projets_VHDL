@@ -39,13 +39,24 @@ Package drapeauPack is
 		-- outputs
 		signal st_out_posYpixel : out integer;
 		signal st_out_syncTrame : out std_logic;
-		signal st_out_syncImgAnimUpdate : out std_logic);
+		signal st_out_AnimImageSync : out std_logic);
+	end component;
+	
+	component CalcPosCarre port(
+		-- inputs
+		signal st_in_clk : in std_logic;
+		signal st_in_syncImage : in std_logic;
+		-- outputs
+		signal int_out_XCarre : out integer;
+		signal int_out_YCarre : out integer);
 	end component;
 	
 	component GeneRGB port(
 		-- inputs
 		signal st_in_posXpixel : in integer;
 		signal st_in_posYpixel : in integer;
+		signal st_in_posXCarre : in integer;
+		signal st_in_posYCarre : in integer;
 		-- outputs
 		signal st_out_RComponent : out std_logic;
 		signal st_out_GComponent : out std_logic;
