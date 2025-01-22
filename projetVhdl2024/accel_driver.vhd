@@ -144,7 +144,7 @@ architecture fsm_1p of accel_driver is
 							state <= S_WRITE;
 						when 1 => 
 							regAddr <= "101100";  
-							regData <= "00000100";
+							regData <= "00001001";	-- Fréquence d'échantillonnage de l'accel à 50Hz
 							reg <= reg + 1;
 							state <= S_WRITE;
 						when 2 =>
