@@ -3,6 +3,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
+use work.PrjPack.all;
+
 entity Projet2024 is port(
 --Signaux pour Accelerometer Sensor (p39 doc DE10-Lite_User_Manual.pdf) :
 		st_in_clk50MHz : 	in std_logic;
@@ -68,13 +70,21 @@ entity Projet2024 is port(
 		);
 end Projet2024;
 
-use work.PrjPack.all;
-
 architecture arch_Projet2024 of Projet2024 is 
 	signal stv4_dataX : std_logic_vector(3 downto 0);
 	signal stv4_sensX : std_logic_vector(3 downto 0);
 	signal stv4_dataY : std_logic_vector(3 downto 0);
 	signal stv4_sensY : std_logic_vector(3 downto 0);
+	
+	signal st_posXpixel : integer;
+	signal st_posYpixel : integer;
+	signal st_retenue : STD_LOGIC;
+	signal st_poscarreX : integer;
+	signal st_poscarreY : integer;
+	signal st_R : STD_LOGIC;
+	signal st_G : STD_LOGIC;
+	signal st_B : STD_LOGIC;
+	signal st_vsync : STD_LOGIC;
 	
 begin 
 		Aff0 : decoder7seg 
@@ -120,4 +130,58 @@ begin
 			stv4_out_sensY  => stv4_sensY
 		);
 		
+	CptX : CompteurX
+	port map(
+		st_in_clk => st_in_clk50MHz,
+		st_out_finLigne => st_retenue,
+		st_out_syncLigne => st_out_syncroLigne,
+		st_out_posXpixel => st_posXpixel
+	);
+		
+	CptY : CompteurY
+		port map(
+			st_in_clk => st_in_clk50MHz,
+			st_in_en => st_retenue,
+			st_out_syncTrame => st_out_syncroTrame,
+			st_out_AnimImageSync => st_vsync,
+			st_out_posYpixel => st_posYpixel
+		);
+	
+	CalculateurPosCarre : CalcPosCarre
+		port map(
+			st_in_clk => st_in_clk50MHz,
+			stv4_in_dataX => stv4_dataX,
+			stv4_in_sensX => stv4_sensX,
+			stv4_in_dataY => stv4_dataY,
+			stv4_in_sensY => stv4_sensY,
+			st_in_syncImage => st_vsync,
+			int_out_XCarre => st_poscarreX,
+			int_out_YCarre => st_poscarreY
+		);
+	
+	GenerateurRGB : GeneRGB
+		port map(
+			st_in_posXpixel => st_posXpixel,
+			st_in_posYpixel => st_posYpixel,
+			st_in_posXCarre => st_poscarreX,
+			st_in_posYCarre => st_poscarreY,
+			st_out_RComponent => st_R,
+			st_out_GComponent => st_G,
+			st_out_BComponent => st_B
+		);
+		
+	stv4_out_R(0) <= st_R;
+	stv4_out_R(1) <= st_R;
+	stv4_out_R(2) <= st_R;
+	stv4_out_R(3) <= st_R;
+	stv4_out_G(0) <= st_G;
+	stv4_out_G(1) <= st_G;
+	stv4_out_G(2) <= st_G;
+	stv4_out_G(3) <= st_G;
+	stv4_out_B(0) <= st_B;
+	stv4_out_B(1) <= st_B;
+	stv4_out_B(2) <= st_B;
+	stv4_out_B(3) <= st_B;
+		
 end arch_Projet2024;
+
