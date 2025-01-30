@@ -22,7 +22,7 @@ Package PrjPack is
 	constant MAXY : integer := 600-1;
 	constant MAXY_BIT_SIZE 	: integer := 10-1;
 	
-	constant COLLISION_RADIUS : integer := 10; -- carré de détection de collision joueur x pixels autour de la position cible
+	constant COLLISION_RADIUS : integer := 30; -- carré de détection de collision joueur x pixels autour de la position cible
 	
 	constant X_MILIEU : integer := XAB+(XABC-XAB)/2;
 	constant Y_MILIEU : integer := YAB+(YABC-YAB)/2;

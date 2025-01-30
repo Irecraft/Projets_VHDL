@@ -27,11 +27,14 @@ begin
 	process(st_in_clk,st_in_syncImage) --
 	begin
 		if(st_in_clk'event and (st_in_clk = '1')) then
+		
+			stv20_compteur <= stv20_compteur +1;
+			
 			if(st_in_rstB = '0') then
 				int_XPosCible <= MAXX/2;
 				int_YPosCible <= MAXY/2;
 			elsif(st_in_enB = '0') then
-				stv20_compteur <= stv20_compteur +1;
+				
 				
 				if(st_in_syncImage = '0') then
 					int_XPosCible <= to_integer(unsigned(stv20_compteur(MAXX_BIT_SIZE downto 0) ) ) mod MAXX+1;
