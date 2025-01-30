@@ -5,11 +5,11 @@ use work.PrjPack.all;
 
 entity CompteurX is port(
 		-- inputs
-		signal st_in_clk : in std_logic;
+		signal st_in_clk 				: in std_logic;
 		-- outputs
-		signal st_out_posXpixel : out integer;
-		signal st_out_syncLigne : out std_logic;
-		signal st_out_finLigne : out std_logic);
+		signal int_out_posXpixel 	: out integer;
+		signal st_out_syncLigne 	: out std_logic;
+		signal st_out_finLigne 		: out std_logic);
 end CompteurX;
 	
 architecture arch_CompteurX of CompteurX is
@@ -40,6 +40,6 @@ begin
 		else '1';
 		
 	-- Assigne la position de pos pixel en X
-	st_out_posXpixel <= int_cptX;
+	int_out_posXpixel <= int_cptX;
 	
 end arch_CompteurX;

@@ -619,11 +619,11 @@ set_location_assignment PIN_K20 -to stv7_out_7seg5[1]
 set_instance_assignment -name IO_STANDARD "2.5 V" -to stv7_out_7seg5[1]
 set_location_assignment PIN_J20 -to stv7_out_7seg5[0]
 set_instance_assignment -name IO_STANDARD "2.5 V" -to stv7_out_7seg5[0]
+set_global_assignment -name VHDL_FILE CalcPosJoueur.vhd
 set_global_assignment -name VERILOG_FILE DE10_LITE_Golden_Top.v
 set_global_assignment -name VHDL_FILE GeneRGB.vhd
 set_global_assignment -name VHDL_FILE CompteurY.vhd
 set_global_assignment -name VHDL_FILE CompteurX.vhd
-set_global_assignment -name VHDL_FILE CalcPosCarre.vhd
 set_global_assignment -name VHDL_FILE spi_master.vhd
 set_global_assignment -name VHDL_FILE Projet2024.vhd
 set_global_assignment -name VHDL_FILE PrjPack.vhd
@@ -631,4 +631,8 @@ set_global_assignment -name VHDL_FILE decoder7seg.vhd
 set_global_assignment -name VHDL_FILE clock_div.vhd
 set_global_assignment -name VHDL_FILE accelSensor.vhd
 set_global_assignment -name VHDL_FILE accel_driver.vhd
+set_global_assignment -name VHDL_FILE CalcPosCible.vhd
+set_global_assignment -name VHDL_FILE StateMachine.vhd
+set_global_assignment -name VHDL_FILE GameTimer.vhd
+set_global_assignment -name VHDL_FILE CollisionDetector.vhd
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

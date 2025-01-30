@@ -5,12 +5,12 @@ use work.PrjPack.all;
 
 entity CompteurY is port(
 		-- inputs
-		signal st_in_clk : in std_logic;
-		signal st_in_en : in std_logic;
+		signal st_in_clk 	: in std_logic;
+		signal st_in_en 	: in std_logic;
 		-- outputs
-		signal st_out_posYpixel : out integer;
-		signal st_out_syncTrame : out std_logic;
-		signal st_out_AnimImageSync : out std_logic);
+		signal int_out_posYpixel 		: out integer;
+		signal st_out_syncTrame 		: out std_logic;
+		signal st_out_AnimImageSync 	: out std_logic);
 end CompteurY;
 
 architecture arch_CompteurY of CompteurY is
@@ -43,7 +43,7 @@ begin
 
 	
 	-- Assigne la position de pos pixel en Y
-	st_out_posYpixel <= int_cptY;
+	int_out_posYpixel <= int_cptY;
 	
 	
 end arch_CompteurY;
