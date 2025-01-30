@@ -35,10 +35,9 @@ begin
 				int_YPosCible <= MAXY/2;
 			elsif(st_in_enB = '0') then
 				
-				
 				if(st_in_syncImage = '0') then
-					int_XPosCible <= to_integer(unsigned(stv20_compteur(MAXX_BIT_SIZE downto 0) ) ) mod MAXX+1;
-					int_YPosCible <= to_integer(unsigned(stv20_compteur(MAXY_BIT_SIZE+MAXX_BIT_SIZE downto (MAXX_BIT_SIZE+1) ) ) ) mod MAXY+1;
+					int_XPosCible <= (to_integer(unsigned(stv20_compteur(MAXX_BIT_SIZE downto 0))) mod (MAXX+1-VAL_COTE_CARRE_CIBLE))+VAL_COTE_CARRE_CIBLE/2;
+					int_YPosCible <= (to_integer(unsigned(stv20_compteur(MAXY_BIT_SIZE+MAXX_BIT_SIZE downto (MAXX_BIT_SIZE+1)))) mod (MAXY+1-VAL_COTE_CARRE_CIBLE))+VAL_COTE_CARRE_CIBLE/2;
 				end if;
 			end if;
 			
