@@ -3,6 +3,10 @@
 -- Repo Github du projet : https://github.com/Irecraft/Projets_VHDL/tree/main/projetVhdl2024
 --	Contient l'ensemble des mises à jour
 --
+-- Changement de la ligne 147 du fichier accel_driver à "00001001" au lieu de "00000100"
+-- pour avoir une fréquence d'échantillonnage à 50Hz de l'inclinomètre (valeur retrouvée dans le programme par défaut de la carte)
+-- J'ai fait la modification malgré l'énoncé car rend l'expérience bien supérieure à la fréquence d'échantillonnage initiale (quelques Hz).
+--
 
 library ieee;
 use ieee.std_logic_1164.all;
