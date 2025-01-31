@@ -1,4 +1,8 @@
---Instanciation projet global : 
+-- Instanciation projet global :
+--
+-- Repo Github du projet : https://github.com/Irecraft/Projets_VHDL/tree/main/projetVhdl2024
+--	Contient l'ensemble des mises à jour
+--
 
 library ieee;
 use ieee.std_logic_1164.all;
