@@ -22,13 +22,18 @@ Package PrjPack is
 	constant MAXY : integer := 600-1;
 	constant MAXY_BIT_SIZE 	: integer := 10-1;
 	
-	constant COLLISION_RADIUS : integer := 30; -- carré de détection de collision joueur x pixels autour de la position cible
+	-- Seuil de détection de collision joueur/cible : carré de x pixels autour de la position cible
+	constant COLLISION_RADIUS : integer := 30; 
 	
+	-- Variable donnant la position du centre de l'écran
 	constant X_MILIEU : integer := XAB+(XABC-XAB)/2;
 	constant Y_MILIEU : integer := YAB+(YABC-YAB)/2;
 	
+	-- Variables permettant de changer la taille du joueur et de la cible
 	constant VAL_COTE_CARRE_JOUEUR 		: integer := 50;
 	constant VAL_COTE_CARRE_CIBLE 		: integer := 70;
+	
+	-- Variable permettant de régler la vitesse de déplacement du joueur en fonction de l'inclinaison de la carte
 	constant PRESCALER_VITESSE_JOUEUR 	: integer := 1700;
 	
 	constant MAX_CPT50M : integer := 50000000;

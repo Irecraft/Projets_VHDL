@@ -1,3 +1,4 @@
+-- Générateur des composantes RGB du signal VGA (carrés joueur et cible)
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -22,6 +23,7 @@ architecture arch_GeneRGB of GeneRGB is
 signal validR 		: STD_LOGIC;
 signal validG 		: STD_LOGIC;
 signal validB 		: STD_LOGIC;
+-- Variable d'activation de sortie RGB lorsque le compteur se trouve dans la séquence de transmission d'image (entre YAB et YABC)
 signal validPix 	: STD_LOGIC;
 
 --Définition des variables internes

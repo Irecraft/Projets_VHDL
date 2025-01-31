@@ -1,3 +1,4 @@
+-- Compteur de position des lignes de pixels en Y pour génération du signal VGA
 library IEEE;
 use IEEE.std_logic_1164.all;
 

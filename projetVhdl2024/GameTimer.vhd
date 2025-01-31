@@ -1,4 +1,4 @@
--- Décompteur de temps de jeu
+-- Module de décompte de temps de jeu
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -29,7 +29,7 @@ begin
 		if(st_in_clk50M'event and (st_in_clk50M = '1')) then
 			if(st_in_rstB = '0') then
 				int_cpt50M <= 0;
-				int_cptTimer <= 59;
+				int_cptTimer <= 59;	-- Temps de jeu de 60s
 			else
 				
 				-- Compteur valide si enable
@@ -54,7 +54,7 @@ begin
 	
 	st_out_TimeOut <= '1' when (int_cptTimer = 0) else '0';
 	
-	-- parse de chaque chiffre indépendament
+	-- parse de chaque chiffre indépendament vers des vecteurs compatibles vers les afficheurs
 	stv4_out_TimerUnites 	<=  std_logic_vector	(to_unsigned(int_cptTimer mod 10,4));
 	stv4_out_TimerDizaines 	<= std_logic_vector	(to_unsigned((int_cptTimer/10) mod 10,4));
 	

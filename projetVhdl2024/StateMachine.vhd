@@ -1,4 +1,4 @@
---	Gestion du graphe d'état
+--	Module de gestion du graphe d'état
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -34,6 +34,9 @@ begin
 	process(st_in_clk)
 	begin
 		if(st_in_clk'event and st_in_clk='1') then
+		
+			-- Machine d'état : Conditions de passage dans les différents états
+		
 			if(st_in_ResetB = '0') then
 				intScoreCounter <= 0;
 				state <= READY;
@@ -71,6 +74,8 @@ begin
 		end if;
 	end process;
 	
+	-- Conditions pour la gestion de l'activation des différents modules du projet
+	
 	st_out_PosJoueurEnB 	<= '0' when((state = GAME		) or (state = SCORE		) or (state = CHANGE_AIM))
 		else '1';
 	
@@ -89,6 +94,7 @@ begin
 	st_out_TimerRstB 		<= '0' when(state = READY		)
 		else '1';
 	
+	-- Affectation du score obtenu
 	stv4_out_ScoreUnites <=  std_logic_vector	(to_unsigned(intScoreCounter mod 10,4));
 	stv4_out_ScoreDizaines <= std_logic_vector(to_unsigned((intScoreCounter/10) mod 10,4));
 

@@ -1,3 +1,4 @@
+-- Module de calcul de la position de la cible avec générateur aléatoire.
 library IEEE;
 use IEEE.std_logic_1164.all;
 USE ieee.numeric_std.ALL; 
@@ -28,7 +29,7 @@ begin
 	begin
 		if(st_in_clk'event and (st_in_clk = '1')) then
 		
-			stv20_compteur <= stv20_compteur +1;
+			stv20_compteur <= stv20_compteur +1;	-- La génération aléatoire se fait à partir d'un compteur assigné à l'horloge de 50MHz, sauvegardé dans son état et réparti dans deux variables de position lorsque le signal st_in_enB est à l'état bas
 			
 			if(st_in_rstB = '0') then
 				int_XPosCible <= MAXX/2;

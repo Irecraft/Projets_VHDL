@@ -1,3 +1,4 @@
+--Module de Calcul de position joueur en fonction de l'inclinaison de la carte
 library IEEE;
 use IEEE.std_logic_1164.all;
 USE ieee.numeric_std.ALL; 
